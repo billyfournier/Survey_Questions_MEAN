@@ -1,0 +1,37 @@
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Dashboard</a>
+    </div>
+
+    <ul class="nav navbar-nav navbar-right">
+      <li><a href='#/dashboard'><span class="glyphicon glyphicon-log-out" ></span> Go to Polls</a></li>
+    </ul>
+  </div>
+</nav>
+<div class="col-md-12">
+
+  <div class="row" ng-init='DC.getPoll()'>
+    <h1>{{ DC.current.question }}</h1>
+    <p>Click the Vote button to choose one.</p>
+    <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Option</th>
+            <th>Current Count of Votes</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+
+          <tr ng-repeat='x in DC.current.options track by $index'>
+            <td>{{ x.option }}</td>
+            <td>{{ x.votes }}</td>
+            <td><button ng-click='DC.vote(x._id)'>Vote</button></td>
+          </tr>
+
+        </tbody>
+      </table>
+
+  </div>
+</div>

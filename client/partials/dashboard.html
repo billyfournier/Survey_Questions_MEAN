@@ -1,0 +1,35 @@
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#/dashboard">Surveys Site</a>
+    </div>
+    <ul class="nav navbar-nav navbar-right">
+      <li><a href="#/create">Create a New Poll</a></li>
+      <li><a ng-click='DC.logout()' href><span class="glyphicon glyphicon-log-out" ></span> Logout</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="row">
+  <h1>Current Polls:</h1>
+  <input type="text" class='pull-right' placeholder='Search for question' ng-model='search'>
+
+  <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Survey Question</th>
+          <th>Date Posted</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat='x in DC.surveys | filter: {question: search} track by $index'>
+          <td>{{ x.username }}</td>
+          <td><a href="#/poll/{{$index}}">{{ x.question }}</a></td>
+          <td>{{ x.date }}</td>
+          <td><a ng-click='DC.delete(x._id)' ng-if='DC.user.username == x.username' href>Delete</a></td>
+        </tr>
+      </tbody>
+    </table>
+</div>

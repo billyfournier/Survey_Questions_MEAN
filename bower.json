@@ -1,0 +1,22 @@
+{
+  "name": "belt_test_mean",
+  "homepage": "https://github.com/billyfournier/mean-sept-2016",
+  "authors": [
+    "billyfournier <billyfournier2000@yahoo.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "angular": "^1.5.8",
+    "angular-route": "^1.5.8"
+  }
+}
